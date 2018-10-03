@@ -1,0 +1,11 @@
+<h2>forkJoin Operator</h2>
+
+<button (click)="show = !show">Toggle</button>
+
+<ng-container *ngIf="show">
+  <ng-container *ngIf="values$ | async; let values;">
+    <p>{{values.first}}</p>
+    <p>{{values.second}}</p>
+    <p>{{values.third}}</p>
+  </ng-container>
+</ng-container>
