@@ -19,10 +19,10 @@ export class ForkJoinComponent implements OnInit {
     this.values$ = forkJoin(
       this.utilService.getSingleValueObservable(),
       this.utilService.getMultipleValueObservables(),
-      this.utilService.getMultipleValueObservables()
+      // this.utilService.getMultipleValueObservables()
     ).pipe(
-      map(([first, second, third]) => {
-        return { first, second, third};
+      map(([first, second]) => {
+        return { first, second};
       })
     );
   }

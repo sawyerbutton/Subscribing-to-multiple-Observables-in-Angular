@@ -1,0 +1,9 @@
+<h2>Async Pipe Object</h2>
+<button (click)="show = !show">Toggle</button>
+<ng-container *ngIf="show">
+  <ng-container *ngIf="{first: first$ | async, second: second$ |async, third: third$ | async} as values;">
+    <p>{{values.first}}</p>
+    <p>{{values.second}}</p>
+    <p>multi values {{values.third}}</p>
+  </ng-container>
+</ng-container>

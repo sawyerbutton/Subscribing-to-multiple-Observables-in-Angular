@@ -2,23 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import {UtilService} from '../util.service';
 
 @Component({
-  selector: 'app-async-pipe',
-  templateUrl: './async-pipe.component.html',
-  styleUrls: ['./async-pipe.component.css']
+  selector: 'app-async-pipe-objects',
+  templateUrl: './async-pipe-objects.component.html',
+  styleUrls: ['./async-pipe-objects.component.css']
 })
-export class AsyncPipeComponent implements OnInit {
-  show = false;
+export class AsyncPipeObjectsComponent implements OnInit {
   first$: any;
   second$: any;
   third$: any;
+  show = false;
   constructor(
     private utilService: UtilService
   ) { }
-  // async pipe automatically subscribe and unsubscribe to the observables,
-  // starting to subscribe when init the component, ending with unsubscribe when destroy the component
+
   ngOnInit() {
     this.first$ = this.utilService.getSingleValueObservable();
     this.second$ = this.utilService.getDelayedValueObservable();
     this.third$ = this.utilService.getMultipleValueObservables();
   }
+
 }
