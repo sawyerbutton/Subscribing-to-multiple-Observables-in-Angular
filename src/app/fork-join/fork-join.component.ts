@@ -20,7 +20,6 @@ export class ForkJoinComponent implements OnInit {
       this.utilService.getSingleValueObservable(),
       this.utilService.getDelayedValueObservable()
       // this.utilService.getMultipleValueObservables(),
-      // this.utilService.getMultipleValueObservables()
     ).pipe(
       map(([first, second]) => {
         return { first, second};
