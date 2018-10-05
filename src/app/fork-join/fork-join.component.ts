@@ -18,7 +18,8 @@ export class ForkJoinComponent implements OnInit {
   ngOnInit() {
     this.values$ = forkJoin(
       this.utilService.getSingleValueObservable(),
-      this.utilService.getMultipleValueObservables(),
+      this.utilService.getDelayedValueObservable()
+      // this.utilService.getMultipleValueObservables(),
       // this.utilService.getMultipleValueObservables()
     ).pipe(
       map(([first, second]) => {
