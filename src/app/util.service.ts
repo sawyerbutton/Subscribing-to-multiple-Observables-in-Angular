@@ -23,7 +23,7 @@ export class UtilService {
       let count = 0;
       const interval = setInterval(() => {
         observer.next(count++);
-        console.log('interval has been fired');
+        console.log(`interval has been fired, count ${count}`);
       }, 1000);
       return () => {
         clearInterval(interval);

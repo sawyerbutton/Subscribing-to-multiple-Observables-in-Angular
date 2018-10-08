@@ -9,7 +9,7 @@ import {getDelayedValueObservable, getSingleValueObservable, getMultipleValueObs
   styleUrls: ['./manual-subscribe.component.css']
 })
 export class ManualSubscribeComponent implements OnInit, OnDestroy{
-  show = false;
+  // show = false;
   first: string;
   second: string;
   third: number;

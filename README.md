@@ -40,7 +40,7 @@ export class UtilService {
       let count = 0;
       const interval = setInterval(() => {
         observer.next(count++);
-        console.log('interval has been fired');
+        console.log(`interval has been fired, count ${count}`);
       }, 1000);
       return () => {
         clearInterval(interval);
@@ -49,6 +49,14 @@ export class UtilService {
   }
 }
 ```
+
+> 由于服务注册于root,故而该服务是全局单例的
+
+> 容易引起误解的地方在于全局单例是否意味着在不同的组件中订阅服务中传递的Observable值是一致的
+
+> 通过打印每个组件中的subscribe的Observable值可以明确得知,服务本身是全局单例的与Observable的subscribe是无关的
+
+> 事实上对于每个Observable的subscribe而言,它们是是独立的,subscribe之间不会互相影响,每个组件中的subscribe相当于是独立的对于Observable流的订阅
 
 ### 直接手动订阅的方式
 
@@ -341,3 +349,4 @@ export class AsyncPipeObjectsComponent implements OnInit {
 > 使用`*ngIf`和异步管道可以将每个Observable分解为一个包含每个Observable的展开值的值对象
 
 > `*ngIf`的这种使用方式并不常见,但这种方式允许在模板中订阅多个Observable以及多次引用之
+
